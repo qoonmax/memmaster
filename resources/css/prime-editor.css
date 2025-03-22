@@ -1,0 +1,127 @@
+/* Стили для редактора */
+.ql-editor {
+    font-family: Figtree, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 16px;
+    padding: 15px 8px !important;
+}
+
+/* Стили для панели инструментов */
+.ql-toolbar {
+    stroke: var(--color-gray);
+}
+
+.ql-toolbar.ql-snow {
+    padding: 0 0 8px 0 !important;
+}
+
+.ql-snow .ql-toolbar button,
+.ql-snow.ql-toolbar button {
+    width: 40px !important;
+}
+
+.ql-toolbar .ql-active {
+    stroke: var(--color-accent);
+}
+
+/* Стили для ссылок */
+.ql-snow a {
+    color: var(--color-accent) !important;
+}
+
+.ql-snow .ql-tooltip a.ql-action::after {
+    border: none !important;
+}
+
+/* Стили для всплывающих элементов и редактирования */
+.ql-editing,
+.ql-tooltip {
+    background: var(--color-dark) !important;
+    border-radius: 10px;
+    padding: 5px 15px !important;
+    box-shadow: none !important;
+    border: 1px solid var(--color-dark-gray) !important;
+    color: var(--color-white-gray) !important;
+    font-size: 14px;
+}
+
+.ql-editing input {
+    font-size: 14px !important;
+    color: var(--color-accent);
+    background: none;
+    border: none !important;
+    border-radius: 5px;
+}
+
+.ql-editing input:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.ql-editing .ql-action::after {
+    font-size: 14px !important;
+    color: white;
+}
+
+/* Стили для блока кода */
+.ql-code-block-container {
+    padding: 10px 15px;
+    border-radius: 10px;
+    background-color: var(--color-black);
+    border: 1px solid var(--color-dark-gray);
+    margin: 10px 0;
+}
+
+/* Дополнительные стили */
+.p-editor .p-editor-toolbar.ql-snow .ql-picker.ql-expanded:not(.ql-icon-picker) .ql-picker-item {
+    border-radius: 5px !important;
+}
+
+.p-editor select.ql-background {
+    display: none;
+}
+
+.p-editor img {
+    width: 100%;
+    margin: 15px 0;
+    border-radius: 0.75rem;
+}
+
+.ql-picker-options {
+    margin-top: 10px!important;
+    background-color: var(--color-dark) !important;
+    border: 1px solid var(--color-dark-gray) !important;
+    border-radius: 10px !important;
+    padding: 15px 20px !important;
+}
+
+.ql-picker-item{
+    color: var(--color-white-gray) !important;
+}
+
+.ql-picker-item::before{
+    font-size: 14px !important;
+}
+
+.ql-picker-item:hover{
+    color: var(--color-accent) !important;
+}
+
+.ql-picker-label {
+    color: var(--color-gray) !important;
+}
+
+
+.ql-active {
+    color: var(--color-accent)!important;
+}
+
+.ql-header {
+    background: transparent!important;
+    border: none!important;
+    font-size: 14px !important;
+    height: 24px!important;
+}
+
+.ql-snow .ql-picker .ql-header {
+    width: 110px !important;
+}

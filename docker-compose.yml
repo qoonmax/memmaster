@@ -1,0 +1,69 @@
+networks:
+    internal:
+        external: false
+
+services:
+    nginx:
+        build:
+            context: .
+            dockerfile: docker/prod/nginx/Dockerfile
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            - ./public:/var/www/public:rw
+            - ./storage:/var/www/storage:rw
+            - ./docker/prod/nginx/logs:/var/log/nginx:rw
+            - ./docker/prod/nginx/conf.d:/etc/nginx/conf.d:rw
+            - ./docker/prod/nginx/ssl:/etc/letsencrypt:rw
+        networks:
+            - internal
+        depends_on:
+            - app
+        restart: unless-stopped
+        container_name: memmaster_nginx
+
+    #генерация сертификатов - docker compose exec -t nginx certbot --nginx --non-interactive --agree-tos --email qoonmax@gmail.com --redirect --expand -d memmaster.com -d www.memmaster.com
+
+    app:
+        build:
+            context: .
+            dockerfile: docker/prod/app/Dockerfile
+        volumes:
+            - ./public:/var/www/public:rw
+            - ./storage:/var/www/storage:rw
+        networks:
+            - internal
+        depends_on:
+            - postgres
+            - redis
+        restart: unless-stopped
+        container_name: memmaster_app
+
+    postgres:
+        image: postgres:latest
+        volumes:
+            - ./postgres_data:/var/lib/postgresql/data
+        environment:
+            - POSTGRES_DB=${DB_DATABASE}
+            - POSTGRES_USER=${DB_USERNAME}
+            - POSTGRES_PASSWORD=${DB_PASSWORD}
+            - PGGSSENCMODE=disable
+        ports:
+            - "5432:5432"
+        networks:
+            - internal
+        restart: unless-stopped
+        container_name: memmaster_postgres
+
+    redis:
+        image: redis:6.2-alpine
+        volumes:
+            - ./redis_data:/data
+        command: redis-server --save 5 1 --loglevel warning --requirepass ${REDIS_PASSWORD}
+        ports:
+            - "6379:6379"
+        networks:
+            - internal
+        restart: unless-stopped
+        container_name: memmaster_redis

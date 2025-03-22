@@ -1,0 +1,32 @@
+.Vue-Toastification__toast {
+    min-height: 32px!important;
+}
+
+.Vue-Toastification__toast--info, .Vue-Toastification__toast--error, .Vue-Toastification__toast--success {
+    background-color: var(--color-dark)!important;
+    border: 1px solid var(--color-dark-gray)!important;
+    padding: 15px 25px!important;
+}
+
+.Vue-Toastification__toast-body {
+    font-size: 14px!important;
+    font-family: Figtree, ui-sans-serif, system-ui!important;
+    font-weight: 500!important;
+}
+
+.Vue-Toastification__progress-bar {
+    max-height: 2px;
+    border-radius: 100px;
+}
+
+.Vue-Toastification__toast--success .Vue-Toastification__progress-bar {
+    background-color: var(--color-accent)!important;
+}
+
+.Vue-Toastification__toast--error .Vue-Toastification__progress-bar {
+    background-color: var(--color-red)!important;
+}
+
+.Vue-Toastification__close-button {
+    font-weight: 400!important;
+}

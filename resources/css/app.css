@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#app {
+    padding-top: 30px;
+}
+
+:root {
+    --color-dark: #0c0c0b;
+    --color-black: #161616;
+    --color-dark-gray: #222222;
+    --color-accent: #dafc08;
+    --color-gray: #9a9a9e;
+    --color-white-gray: #e1e1e1;
+    --color-red: #ec0606;
+    --color-dark-red: #810707;
+}
+
+::selection {
+    background-color: var(--color-accent)!important;
+    color: var(--color-dark)!important;
+}
+
+/* Custom Text */
+.text-accent {
+    color: var(--color-accent)!important;
+}
+.text-dark {
+    color: var(--color-dark)!important;
+}
+.text-gray {
+    color: var(--color-gray)!important;
+}
+.text-white-gray {
+    color: var(--color-white-gray)!important;
+}
+.text-red {
+    color: var(--color-red)!important;
+}
+.text-dark-red {
+    color: var(--color-dark-red)!important;
+}
+.placeholder-gray::placeholder {
+    color: var(--color-gray)!important;
+}
+
+/* Custom Background */
+.bg-dark {
+    background-color: var(--color-dark)!important;
+}
+.bg-black {
+    background-color: var(--color-black)!important;
+}
+.bg-accent {
+    background-color: var(--color-accent)!important;
+}
+
+/* Custom Border */
+.border-gray {
+    border-color: var(--color-dark-gray)!important;
+}
+.border-accent {
+    border-color: var(--color-accent)!important;
+}
+
+.bg-points {
+    background-color: var(--color-dark)!important;
+    opacity: 1;
+    background-image: radial-gradient(#353535 0.65px, var(--color-dark) 0.65px);
+    background-size: 27px 27px;
+}
+
+.html-content a {
+    cursor: pointer;
+    color: var(--color-accent)!important;
+    text-decoration: underline;
+}
+
+.html-content p {
+    word-break: break-word;
+}
+
+.html-content img {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 0.75rem;
+}
+
+.search-field {
+    background: transparent!important;
+    border-width: 1px;
+    border-radius: 12px!important;
+    width: auto!important;
+    padding: 3px 13px;
+}
+
+.search-field::placeholder {
+    color: var(--color-gray)!important;
+}
+
+.search-field input:focus {
+    border-width: 0 !important;
+    outline: none!important;
+    -webkit-box-shadow: none!important;
+    border-color: inherit!important;
+    box-shadow: none!important;
+}

@@ -1,0 +1,61 @@
+networks:
+  internal:
+    external: false
+
+services:
+  nginx:
+    image: nginx:latest
+    volumes:
+      - .:/var/www/
+      - ./docker/local/nginx/conf.d/:/etc/nginx/conf.d/
+      - ./docker/local/nginx/logs:/var/log/nginx/
+    ports:
+      - "80:80"
+    networks:
+      - internal
+    depends_on:
+      - app
+    restart: unless-stopped
+    container_name: memmaster_nginx
+
+  app:
+    build:
+      context: .
+      dockerfile: docker/local/app/Dockerfile
+    volumes:
+      - .:/var/www/
+      - ./docker/local/app/php.ini:/usr/local/etc/php/php.ini
+    networks:
+      - internal
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+    container_name: memmaster_app
+
+  postgres:
+    image: postgres:latest
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=${DB_DATABASE}
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - PGGSSENCMODE=disable
+    ports:
+      - "5432:5432"
+    networks:
+      - internal
+    restart: unless-stopped
+    container_name: memmaster_postgres
+
+  redis:
+    image: redis:6.2-alpine
+    volumes:
+      - ./redis_data:/data
+    command: redis-server --save 5 1 --loglevel warning --requirepass ${REDIS_PASSWORD}
+    ports:
+      - "6379:6379"
+    networks:
+      - internal
+    restart: unless-stopped
+    container_name: memmaster_redis
