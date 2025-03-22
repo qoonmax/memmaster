@@ -1,14 +1,8 @@
-# TODO
+# Memmaster
 
- - [x] Разобраться со стилями в app.css, там немножко бардак.
- - [x] В EditorModal есть проблема когда после ввода текста сразу переключаешься табом на теги,
-запрос не отправляется, потому что не успевает сохраниться в tempCard.
- - [x] В форме логина есть анг. сообщения об ошибках, нужно перевести.
- - [x] Проблема с состоянием гонки в редакторе с тегами.
- - [ ] Что-то с авторизацией в api.php
- - [ ] Перевести все на английский
- - [ ] Если роут генерации тегов падает с ошибкой, возвращается ужасный toast с большим json
- - [x] Страница welcome должна редиректить если пользователь авторизован
- - [x] Если выбрать фильтр все карточки и создать новую, она не появляется в списке пока не переключить фильтр все карточки еще раз туда-обратно.
- - [x] List елемент не отображается в списке карточек.
- - [x] Сделать чтобы повторения ограничивались 8-ю.
+This repository contains a spaced repetition service designed to help users efficiently retain and review information over time. The system schedules reviews based on user performance, optimizing learning and minimizing unnecessary repetitions.
+
+![Image alt](https://github.com/qoonmax/memmaster/blob/main/bg/login.jpeg)
+![Image alt](https://github.com/qoonmax/memmaster/blob/main/bg/register.jpeg)
+![Image alt](https://github.com/qoonmax/memmaster/blob/main/bg/list.jpeg)
+![Image alt](https://github.com/qoonmax/memmaster/blob/main/bg/edit.jpeg)
